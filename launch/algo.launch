@@ -1,4 +1,5 @@
 <launch>
+	<arg name = "recordRosbag" default = "false"/>
 	<include file ="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
 	 <arg 
 	 	name = "world_file"
@@ -12,6 +13,14 @@
 		name = "obstacle_avoidance_turtlebot"
 		output = "screen"
 		launch-prefix="xterm -e"
+	/>
+
+	<node 
+		pkg= "rosbag" 
+		name= "record_bag" 
+		type= "record"	
+		args = "-x /camera/(.*) --duration=15 -a -O $(find obstacle_avoidance_turtlebot)/results/rec.bag"
+		if = "$(arg recordRosbag)"
 	/>
 
 </launch>
