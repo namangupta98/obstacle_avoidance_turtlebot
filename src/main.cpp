@@ -46,11 +46,11 @@
  * @return     none
  */
 int main(int argc, char* argv[]) {
-	// Initializing ROS node
-	ros::init(argc, argv, "obstacle_avoidance_turtlebot");
-	// Object robot of Algo class
-	Algo robot;
-	// Moving robot
-	robot.movement();
-	return 0;
+    // Initializing ROS node
+    ros::init(argc, argv, "obstacle_avoidance_turtlebot");
+    // Object robot of Algo class
+    Algo robot;
+    // Moving robot
+    robot.movement();
+    return 0;
 }

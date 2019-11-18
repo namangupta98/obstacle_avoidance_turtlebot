@@ -37,8 +37,8 @@
  *@brief      Class to implement obstacle avoidance algorithm
  */
 
-#ifndef INCLUDE_ALGORITHM_HPP
-#define INCLUDE_ALGORITHM_HPP
+#ifndef INCLUDE_ALGO_HPP_
+#define INCLUDE_ALGO_HPP_
 
 #include <ros/ros.h>
 #include <sensor_msgs/LaserScan.h>
@@ -48,53 +48,53 @@
  * @brief	Class for the obstacle avoidance algorithm
  */
 class Algo{
-private:
-		// Wall container to store boolean value of status
-		bool wall;
-		// Object of Twist
-		geometry_msgs::Twist msg;
-		// Object of NodeHandle
-		ros::NodeHandle nh;
-		// Object publisher
-		ros::Publisher pubVel;
-		// Object of subscriber
-		ros::Subscriber subLaser;
-		// Container to store linear velocity
-		float linVel;
-		// Container to store angular velocity
-		float angVel;
+ private:
+        // Wall container to store boolean value of status
+        bool wall;
+        // Object of Twist
+        geometry_msgs::Twist msg;
+        // Object of NodeHandle
+        ros::NodeHandle nh;
+        // Object publisher
+        ros::Publisher pubVel;
+        // Object of subscriber
+        ros::Subscriber subLaser;
+        // Container to store linear velocity
+        float linVel;
+        // Container to store angular velocity
+        float angVel;
 
-public:
+ public:
 	/**
  	 * @brief 	Constructor for objects
  	 */
-	Algo();
+    Algo();
 
 	/**
 	 * @brief	Destructor for objects
 	 */
-	~Algo();
+    ~Algo();
 
 	/**
  	 * @brief 	function to callback laser scanner
  	 * @return 	none
  	 * @param	stat pointer which stores scanner status of type constant
  	 */
-	void laserScan(const sensor_msgs::LaserScan::ConstPtr& stat);
+    void laserScan(const sensor_msgs::LaserScan::ConstPtr& stat);
 
 	/**
 	 * @brief	function which tells that wall detected or not
 	 * @param	none
 	 * @return	returns true if wall detected else false if not of type bool
 	 */
-	bool obstacle();
+    bool obstacle();
 
 	/**
 	 * @brief	function to move the robot
 	 * @param	none
 	 * @return 	none
 	 */
-	void movement();
+    void movement();
 };
 
-#endif
+#endif  // INCLUDE_ALGO_HPP_
