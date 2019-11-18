@@ -44,6 +44,7 @@
  * @brief	Constructs the object.
  */
 Algo::Algo() {
+  wall = false;
   // Setting linear velocity and angular velocity
   linVel = 0.2;
   angVel = 1.0;
